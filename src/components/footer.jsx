@@ -1,5 +1,5 @@
 const Footer = () => {
-  return <div>React Movies @ 2023. All rights reserved.</div>;
+  return <footer>React Movies @ 2023. All rights reserved.</footer>;
 };
 
 export default Footer;

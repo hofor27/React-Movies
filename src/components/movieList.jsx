@@ -42,19 +42,16 @@ const MovieList = () => {
 
   return (
     <div>
-      <h2>Popular Movies</h2>
+      <h2 className='movie-heading'>Popular Movies</h2>
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>
             <img
               src={movie.posterUrl}
               alt={movie.title}
-              style={{ width: "150px", height: "200px" }}
+              
             />
-            <h3>{movie.title}</h3>
-            <p>Release Date: {movie.release_date}</p>
-            <p>Overview: {movie.overview}</p>
-            <p>Popularity: {movie.popularity}</p>
+            <h3 class="movie-title">{movie.title}</h3>
             <p>Vote Average: {movie.vote_average}</p>
             <p>Vote Count: {movie.vote_count}</p>
           </li>
