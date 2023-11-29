@@ -61,6 +61,48 @@ footer {
   font-weight: 500;
 }
 
+.movie-details {
+  display: flex;
+  height: 80vh;
+  width: 100%;
+}
+
+.left-column {
+  width: 30%;
+  background-color: #f0f0f0;
+}
+
+.right-column-container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0 2rem;
+  font-size: 1.4rem;
+}
+
+.right-column {
+  flex: 1;
+}
+.movie-title-details span {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+.movie-details-description span {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+button {
+  background-color: red;
+  color: white;
+  padding: 1rem;
+  width: fit-content;
+  border: none;
+  font-size: 1.4rem;
+  border-radius: 1rem;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   ul {
     grid-template-columns: auto auto;

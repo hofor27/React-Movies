@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -39,21 +40,19 @@ const MovieList = () => {
 
     fetchMovies();
   }, []); // The empty dependency array ensures that this effect runs once when the component mounts
-
+  console.log(movies);
   return (
     <div>
-      <h2 className='movie-heading'>Popular Movies</h2>
+      <h2 className="movie-heading">Popular Movies</h2>
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>
-            <img
-              src={movie.posterUrl}
-              alt={movie.title}
-              
-            />
-            <h3 class="movie-title">{movie.title}</h3>
-            <p>Vote Average: {movie.vote_average}</p>
-            <p>Vote Count: {movie.vote_count}</p>
+            <Link to={`/details/${movie.id}`}>
+              <img src={movie.posterUrl} alt={movie.title} />
+              <h3 className="movie-title">{movie.title}</h3>
+              <p>Release Date: {movie.release_date}</p>
+              <p>Vote Count: {movie.vote_count}</p>
+            </Link>
           </li>
         ))}
       </ul>
