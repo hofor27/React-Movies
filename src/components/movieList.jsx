@@ -1,6 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import {
+  MovieListSection,
+  MovieHeading,
+  MovieListItem,
+  MovieTitle,
+  MoviePoster,
+  MovieListGrid,
+} from "../styles";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -42,21 +50,21 @@ const MovieList = () => {
   }, []); // The empty dependency array ensures that this effect runs once when the component mounts
   console.log(movies);
   return (
-    <div className="movielist-section">
-      <h2 className="movie-heading">Popular Movies</h2>
-      <ul>
+    <MovieListSection>
+      <MovieHeading>Popular Movies</MovieHeading>
+      <MovieListGrid>
         {movies.map((movie) => (
-          <li key={movie.id}>
+          <MovieListItem key={movie.id}>
             <Link to={`/details/${movie.id}`}>
-              <img src={movie.posterUrl} alt={movie.title} />
-              <h3 className="movie-title">{movie.title}</h3>
+              <MoviePoster src={movie.posterUrl} alt={movie.title} />
+              <MovieTitle>{movie.title}</MovieTitle>
               <p>Release Date: {movie.release_date}</p>
               <p>Vote Count: {movie.vote_count}</p>
             </Link>
-          </li>
+          </MovieListItem>
         ))}
-      </ul>
-    </div>
+      </MovieListGrid>
+    </MovieListSection>
   );
 };
 

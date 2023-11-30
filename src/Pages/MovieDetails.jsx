@@ -1,10 +1,16 @@
-// MovieDetails.js
-
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import Footer from "../components/footer";
+import {
+  MovieDetailsContainer,
+  LeftColumn,
+  RightColumnContainer,
+  MovieTitleDetails,
+  MovieDetailsDescription,
+  MovieDetailsButton,
+} from "../styles";
 import Header from "../components/header";
+import Footer from "../components/footer";
 
 const MovieDetails = () => {
   const { id } = useParams(); // Accessing the movie ID from the route parameter
@@ -53,21 +59,21 @@ const MovieDetails = () => {
   return (
     <div>
       <Header title={movieDetails.title} />
-      <section className="movie-details">
-        <div className="left-column">
+      <MovieDetailsContainer>
+        <LeftColumn>
           <img
             src={movieDetails.posterUrl}
             alt={movieDetails.title}
             style={{ width: "100%", height: "100%" }}
           />
-        </div>
-        <div className="right-column-container">
-          <p className="movie-title-details">
+        </LeftColumn>
+        <RightColumnContainer>
+          <MovieTitleDetails>
             <span>Title:</span> {movieDetails.title}
-          </p>
-          <p className="movie-details-description">
+          </MovieTitleDetails>
+          <MovieDetailsDescription>
             <span>Summary:</span> {movieDetails.overview}
-          </p>
+          </MovieDetailsDescription>
           <p className="movie-title-date">
             <span>Release Date:</span> {movieDetails.releaseDate}
           </p>
@@ -75,10 +81,10 @@ const MovieDetails = () => {
             <span>Rating:</span> {movieDetails.rating}
           </p>
           <Link to="/">
-            <button>Back to Homepage</button>
+            <MovieDetailsButton>Back to Homepage</MovieDetailsButton>
           </Link>
-        </div>
-      </section>
+        </RightColumnContainer>
+      </MovieDetailsContainer>
       <Footer />
     </div>
   );
