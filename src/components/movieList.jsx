@@ -42,7 +42,7 @@ const MovieList = () => {
   }, []); // The empty dependency array ensures that this effect runs once when the component mounts
   console.log(movies);
   return (
-    <div>
+    <div className="movielist-section">
       <h2 className="movie-heading">Popular Movies</h2>
       <ul>
         {movies.map((movie) => (
